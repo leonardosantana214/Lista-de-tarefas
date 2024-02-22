@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./Logo Cyanic.png";
+import "./App.css";
 
 function App() {
   const [tarefas, setTarefas] = useState([]);
-  const [novaTarefa, setNovaTarefa] = useState('');
+  const [novaTarefa, setNovaTarefa] = useState("");
 
   const adicionarTarefa = (event) => {
     event.preventDefault();
     setTarefas([...tarefas, { texto: novaTarefa, concluida: false }]);
-    setNovaTarefa('');
+    setNovaTarefa("");
   };
 
   const marcarConcluida = (index) => {
@@ -19,13 +19,22 @@ function App() {
       )
     );
   };
+  const excluir = (index) => {
+    setTarefas(
+      tarefas.map((tarefa, i) =>
+        i === index ? { ...tarefa, concluida: !tarefa.concluida } : tarefa
+      )
+    );
+  };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <br></br>
-        <h1>Lista de Tarefas</h1>
+      <div className="container">
+        <div className="row justify-content-center mb-5">
+          <img src={logo} className="App-logo" alt="logo" />
+          <br></br>
+          <h1>Lista de Tarefas</h1>
+        </div>
         <form onSubmit={adicionarTarefa}>
           <input
             value={novaTarefa}
@@ -35,15 +44,23 @@ function App() {
         </form>
         <ol>
           {tarefas.map((tarefa, index) => (
-            <li key={index} style={{ textDecoration: tarefa.concluida ? 'line-through' : 'none' }}>
+            <li
+              key={index}
+              style={{
+                textDecoration: tarefa.concluida ? "line-through" : "none",
+              }}
+            >
               {tarefa.texto}
               <button onClick={() => marcarConcluida(index)}>
-                {tarefa.concluida ? 'Desmarcar' : 'Marcar'}
+                {tarefa.concluida ? "Desmarcar" : "Marcar"}
+              </button>
+              <button onClick={() => excluir(index)}>
+                {tarefa.concluida ? "excluir" : "apagar"}
               </button>
             </li>
           ))}
         </ol>
-      </header>
+      </div>
     </div>
   );
 }
