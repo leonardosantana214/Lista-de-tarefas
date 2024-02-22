@@ -1,14 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
 *{
   margin: 0;
+  font-family: 'M Plus Rounded 1c', sans-serif;
   padding: 0;
 }
-body{
-}
+
 .container{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
+}
+.Card{
+  margin-top: 250px;
+  background-color: rgba(0, 255, 255, 0.555);
+  padding: 50px;
+  color: white;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.Card h1{
+  font-weight: bolder;
+}
+button{
+  background-color: aquamarine;
+  color: black;
+  border: none;
+  border-radius:10px ;
+}
+hr{
+  margin: 20px;
+}
+li{
+  background-color: white;
+  color:  black;
+  display: flex;
+  justify-content: space-around;
+}
+.btns{
+  display: flex;
+  justify-content: right;
 }

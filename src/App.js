@@ -30,13 +30,14 @@ function App() {
         <div className="Card row justify-content-center mb-5">
 
           <h1>Lista de Tarefas</h1>
-        </div>
+
         <form onSubmit={adicionarTarefa}>
           <input
             value={novaTarefa}
             onChange={(event) => setNovaTarefa(event.target.value)}
           />
           <button type="submit">Adicionar</button>
+          <hr></hr>
         </form>
         <ol>
           {tarefas.map((tarefa, index) => (
@@ -47,15 +48,18 @@ function App() {
               }}
             >
               {tarefa.texto}
-              <button onClick={() => marcarConcluida(index)}>
-                {tarefa.concluida ? "Desmarcar" : "Marcar"}
-              </button>
-              <button onClick={() => excluir(index)}>
-                Excluir
-              </button>
+              <div className="btns">
+                <button onClick={() => marcarConcluida(index)}>
+                  {tarefa.concluida ? "Desmarcar" : "Marcar"}
+                </button>
+                <button onClick={() => excluir(index)}>
+                  Excluir
+                </button>
+              </div>
             </li>
           ))}
         </ol>
+        </div>
       </div>
     </div>
   );
