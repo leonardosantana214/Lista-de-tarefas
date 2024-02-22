@@ -27,9 +27,8 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <div className="row justify-content-center mb-5">
-          <img src={logo} className="App-logo" alt="logo" />
-          <br></br>
+        <div className="Card row justify-content-center mb-5">
+
           <h1>Lista de Tarefas</h1>
         </div>
         <form onSubmit={adicionarTarefa}>
