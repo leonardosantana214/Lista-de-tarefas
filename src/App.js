@@ -19,12 +19,9 @@ function App() {
       )
     );
   };
+
   const excluir = (index) => {
-    setTarefas(
-      tarefas.map((tarefa, i) =>
-        i === index ? { ...tarefa, concluida: !tarefa.concluida } : tarefa
-      )
-    );
+    setTarefas(tarefas.filter((tarefa, i) => i !== index));
   };
 
   return (
@@ -55,7 +52,7 @@ function App() {
                 {tarefa.concluida ? "Desmarcar" : "Marcar"}
               </button>
               <button onClick={() => excluir(index)}>
-                {tarefa.concluida ? "excluir" : "apagar"}
+                Excluir
               </button>
             </li>
           ))}
